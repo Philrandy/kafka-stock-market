@@ -75,30 +75,4 @@ Key behavior:
 
 Consumes Kafka messages and uploads them to S3 as JSON or CSV files.
 
-### Example S3 Consumer Logic
-
-```python
-import json
-from json import dump, json
-from kafka import KafkaConsumer
-
-s3 = boto3.client('s3')
-BUCKET = "kafka-stk-market"
-
-consumer = KafkaConsumer(
-    "demo_test",
-    bootstrap_servers=["<EC2-PUBLIC-IP>:9092"],
-    value_deserializer=lambda m: json.loads(m.decode("utf-8")),
-    auto_offset_reset="earliest"
-)
-
-for msg in consumer:
-    s3.put_object(
-        Bucket=BUCKET,
-        Key=f"kafka-data/{msg.offset}.json",
-        Body=json.dumps(msg.value)
-    )
-```
-
----
 
