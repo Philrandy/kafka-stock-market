@@ -79,11 +79,11 @@ Consumes Kafka messages and uploads them to S3 as JSON or CSV files.
 
 ```python
 import json
-import boto3
+from json import dump, json
 from kafka import KafkaConsumer
 
 s3 = boto3.client('s3')
-BUCKET = "your-s3-bucket-name"
+BUCKET = "kafka-stk-market"
 
 consumer = KafkaConsumer(
     "demo_test",
