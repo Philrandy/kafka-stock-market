@@ -14,6 +14,9 @@ CSV Dataset → Kafka Producer → Kafka Topic → Kafka Consumer → Amazon S3
 * **Kafka Broker**: Handles message streaming and durability.
 * **Kafka Consumer**: Subscribes to the topic, consumes messages, and stores them in S3 for downstream analytics.
 
+![Architecture](https://github.com/user-attachments/assets/8404afe3-4f81-49f5-84a7-2537f7f694a9)
+
+
 ---
 
 ## Tech Stack
